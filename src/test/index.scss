@@ -1,0 +1,37 @@
+@import '../scss-mixins/arrow.scss';
+
+.test {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    padding: 0 40px;
+    background-color: white;
+    min-height: 40px;
+    border-radius: 4px;
+    justify-content: space-between;
+}
+
+.hide {
+    display: none;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.arrow-up {
+    @include arrow-up(#333, 12px);
+}
+
+.arrow-down {
+    @include arrow-down(#333, 12px);
+}
+.dropdown-container {
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    border-radius: 4px;
+}

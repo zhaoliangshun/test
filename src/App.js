@@ -1,10 +1,10 @@
 import './App.scss';
-import Arrow from './scss-mixins/test/arrow';
+import Test from './test';
 
 function App() {
     return (
         <div className="App">
-            <Arrow />
+            <Test/>
         </div>
     );
 }

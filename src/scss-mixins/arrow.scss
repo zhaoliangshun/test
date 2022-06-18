@@ -1,7 +1,7 @@
 
-@mixin arrow-top($size: 10px, $color: red, $width: 3px) {
+@mixin arrow-up($color: red, $size: 10px, $width: 3px) {
     width: $size * 2;
-    height: $size * 2;
+    height: $size;
     position: relative;
     &:before,
     &:after {
@@ -21,9 +21,9 @@
     }
 }
 
-@mixin arrow-bottom($size: 10px, $color: red, $width: 3px) {
+@mixin arrow-down($color: red, $size: 10px, $width: 3px) {
     width: $size * 2;
-    height: $size * 2;
+    height: $size;
     position: relative;
     &:before,
     &:after {
@@ -43,8 +43,8 @@
     }
 }
 
-@mixin arrow-left($size: 10px, $color: red, $width: 3px) {
-    width: $size * 2;
+@mixin arrow-left($color: red, $size: 10px, $width: 3px) {
+    width: $size;
     height: $size * 2;
     position: relative;
     &::before,
@@ -64,8 +64,8 @@
     }
 }
 
-@mixin arrow-right($size: 10px, $color: red, $width: 3px) {
-    width: $size * 2;
+@mixin arrow-right($color: red, $size: 10px, $width: 3px) {
+    width: $size;
     height: $size * 2;
     position: relative;
     &::before,

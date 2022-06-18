@@ -1,10 +1,10 @@
 @import '../../arrow.scss';
 .top {
-    @include arrow-top()
+    @include arrow-up()
 }
 
 .bottom {
-    @include arrow-bottom()
+    @include arrow-down()
 }
 
 .left {
