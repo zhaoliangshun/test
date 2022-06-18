@@ -1,10 +1,10 @@
 import './App.scss';
-import DropDown from './ui/DropDown/index'
+import Arrow from './scss-mixins/test/arrow';
 
 function App() {
     return (
         <div className="App">
-            <DropDown/>
+            <Arrow />
         </div>
     );
 }
