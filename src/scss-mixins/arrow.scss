@@ -1,0 +1,86 @@
+
+@mixin arrow-top($size: 10px, $color: red, $width: 3px) {
+    width: $size * 2;
+    height: $size * 2;
+    position: relative;
+    &:before,
+    &:after {
+        position: absolute;
+        content: '';
+        border-top: 0;
+        border-left: $size transparent dashed;
+        border-right: $size transparent dashed;
+        border-bottom: $size #fff solid;
+    }
+    &:before {
+        border-bottom: $size $color solid;
+    }
+    &:after {
+        top: $width;
+        border-bottom: $size #fff solid;
+    }
+}
+
+@mixin arrow-bottom($size: 10px, $color: red, $width: 3px) {
+    width: $size * 2;
+    height: $size * 2;
+    position: relative;
+    &:before,
+    &:after {
+        position: absolute;
+        content: '';
+        border-bottom: 0;
+        border-left: $size transparent dashed;
+        border-right: $size transparent dashed;
+        border-top: $size #fff solid;
+    }
+    &:before {
+        border-top: $size $color solid;
+    }
+    &:after {
+        top: -$width;
+        border-top: $size #fff solid;
+    }
+}
+
+@mixin arrow-left($size: 10px, $color: red, $width: 3px) {
+    width: $size * 2;
+    height: $size * 2;
+    position: relative;
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        border-top: $size transparent dashed;
+        border-bottom: $size transparent dashed;
+        border-right: $size #fff solid;
+    }
+    &::before {
+        border-right: $size $color solid;
+    }
+    &::after {
+        left: $width;
+        border-right: $size #fff solid;
+    }
+}
+
+@mixin arrow-right($size: 10px, $color: red, $width: 3px) {
+    width: $size * 2;
+    height: $size * 2;
+    position: relative;
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        border-top: $size transparent dashed;
+        border-bottom: $size transparent dashed;
+        border-left: $size #fff solid;
+    }
+    &::before {
+        border-left: $size $color solid;
+    }
+    &::after {
+        left: -$width;
+        border-left: $size #fff solid;
+    }
+}
