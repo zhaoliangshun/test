@@ -1,3 +1,6 @@
+import BoxContainer from './common';
+
+
 const data = {
     en: {
         s1: 'Bets of Match Specials are settled on the full time result of play time, excluding extra time and penalty shootout.',
@@ -85,12 +88,16 @@ const data = {
     },
 };
 
+
 export default ({ lang = 'en' }) => {
     const d = data[lang];
     return (
-        <div className="spe">
-            <p>{d.s1}</p>
-            <p>{d.s1}</p>
-        </div>
+        <>
+            <div className="spe">
+                <p>{d.s1}</p>
+                <p>{d.s1}</p>
+            </div>
+            <BoxContainer>111</BoxContainer>
+        </>
     );
 };

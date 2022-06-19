@@ -1,4 +1,8 @@
 @import '../scss-mixins/index.scss';
+.hide {
+    display: none !important;
+}
+
 .page-conta {
     margin: 6px 15px;
     min-height: 100vh;

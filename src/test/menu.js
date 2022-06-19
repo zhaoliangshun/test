@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Arrow } from './common';
 import './menu.scss';
 const menu = [
     {
@@ -280,9 +281,7 @@ export default () => {
             <div className={spread ? 'mask' : ''} onClick={() => setSpread(!spread)} />
             <div className="test">
                 <span>标题文本</span>
-                <div className="arrow-conta" onClick={() => setSpread(!spread)}>
-                    <div className={`arrow ${spread ? 'arrow-down' : 'arrow-up'}`} />
-                </div>
+                <Arrow spread={spread}  onClick={() => setSpread(!spread)} />
                 <div className={`dropdown-container ${spread ? '' : 'hide'}`}>
                     {menu.map((item, index) => {
                         return (
