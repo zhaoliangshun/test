@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import './index.scss';
+import './menu.scss';
 const menu = [
     {
         pg: 'aaa'
@@ -271,7 +270,7 @@ const menu = [
     },
     {
         pg: 'eee'
-    },
+    }
 ];
 
 export default () => {
@@ -285,9 +284,12 @@ export default () => {
                     <div className={`arrow ${spread ? 'arrow-down' : 'arrow-up'}`} />
                 </div>
                 <div className={`dropdown-container ${spread ? '' : 'hide'}`}>
-                    {menu.map((item) => {
-                        console.log(item);
-                        return <div className='item' key={item.pg} onClick={() => setSpread(!spread)}>{item.pg}</div>;
+                    {menu.map((item, index) => {
+                        return (
+                            <div className="item" key={index} onClick={() => setSpread(!spread)}>
+                                {item.pg}
+                            </div>
+                        );
                     })}
                 </div>
             </div>
