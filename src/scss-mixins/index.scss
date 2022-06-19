@@ -1,4 +1,5 @@
 @import './arrow.scss';
+@import './mask.scss';
 
 @mixin link-colors($normal, $hover, $visited) {
     color: $normal;

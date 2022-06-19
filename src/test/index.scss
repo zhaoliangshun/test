@@ -1,5 +1,8 @@
-@import '../scss-mixins/arrow.scss';
+@import '../scss-mixins/index.scss';
 
+.mask {
+    @include mask(rgba(0, 0, 0, 0.5), 0);
+}
 .test {
     position: relative;
     display: flex;
@@ -13,7 +16,16 @@
 }
 
 .hide {
-    display: none;
+    display: none !important;
+}
+
+.arrow-conta {
+    width: 60px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -20px;
 }
 
 .arrow {
@@ -31,7 +43,36 @@
     background-color: white;
     width: 100%;
     position: absolute;
-    top: calc(100% + 3px);
+    top: calc(100% + 1px);
     left: 0;
     border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    .item {
+        min-height: 40px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        padding-left: 12px;
+        box-sizing: border-box;
+        border-bottom: #ddd solid 1px;
+        border-radius: 4px;
+        &:nth-of-type(odd){
+            position: relative;
+            &:after {
+                position:absolute;
+                content: '';
+                right: 0;
+                top: 4px;
+                bottom: 4px;
+                width: 1px;
+                background-color: #ddd;
+            }
+        }
+    }
+    
+
 }
