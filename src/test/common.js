@@ -1,22 +1,20 @@
-import { useState } from 'react';
 import './common.scss';
 
-export const Arrow = ({ onClick, spread }) => {
+export const Arrow = ({ onClick, direction = 'arrow-up' }) => {
     return (
         <div className="arrow-conta" onClick={onClick}>
-            <div className={`arrow ${spread ? 'arrow-down' : 'arrow-up'}`} />
+            <div className={`arrow ${direction}`} />
         </div>
     );
 };
 
 const BoxContainer = ({ children }) => {
-    const [spread, setSpread] = useState(true);
     return (
         <div className="box-container">
             <div className="header">
-                <Arrow spread={spread} onClick={() => setSpread(!spread)} />
+                <Arrow onClick={() => window.scrollTo(0, 0)} />
             </div>
-            <div className={`children-container ${spread ? '' : 'hide'}`}>{children}</div>
+            <div>{children}</div>
         </div>
     );
 };

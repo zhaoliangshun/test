@@ -281,7 +281,7 @@ export default () => {
             <div className={spread ? 'mask' : ''} onClick={() => setSpread(!spread)} />
             <div className="test">
                 <span>标题文本</span>
-                <Arrow spread={spread}  onClick={() => setSpread(!spread)} />
+                <Arrow spread={spread ? 'arrow-down' : 'arrow-up'}  onClick={() => setSpread(!spread)} />
                 <div className={`dropdown-container ${spread ? '' : 'hide'}`}>
                     {menu.map((item, index) => {
                         return (
