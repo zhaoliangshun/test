@@ -1,16 +1,27 @@
-import { useLocalStorage } from 'react-use';
+import { useState, useEffect } from 'react';
+import { useCookie } from './hooks';
 
 const Demo = () => {
-  const [value, setValue, remove] = useLocalStorage('my-key', 'foo');
+    const [value, updateCookie, deleteCookie] = useCookie('my-cookie');
+    const [counter, setCounter] = useState(1);
 
-  return (
-    <div>
-      <div>Value: {value}</div>
-      <button onClick={() => setValue('bar')}>bar</button>
-      <button onClick={() => setValue('baz')}>baz</button>
-      <button onClick={() => remove()}>Remove</button>
-    </div>
-  );
+    useEffect(() => {
+        deleteCookie();
+    }, []);
+
+    const updateCookieHandler = () => {
+        updateCookie(`my-awesome-cookie-${counter}`);
+        setCounter((c) => c + 1);
+    };
+
+    return (
+        <div>
+            <p>Value: {value}</p>
+            <button onClick={updateCookieHandler}>Update Cookie</button>
+            <br />
+            <button onClick={deleteCookie}>Delete Cookie</button>
+        </div>
+    );
 };
 
 export default Demo;
