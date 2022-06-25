@@ -1,12 +1,16 @@
-import './App.scss';
-import Help from './help';
+import { useLocalStorage } from 'react-use';
 
-function App() {
-    return (
-        <div className="App">
-            <Help/>
-        </div>
-    );
-}
+const Demo = () => {
+  const [value, setValue, remove] = useLocalStorage('my-key', 'foo');
 
-export default App;
+  return (
+    <div>
+      <div>Value: {value}</div>
+      <button onClick={() => setValue('bar')}>bar</button>
+      <button onClick={() => setValue('baz')}>baz</button>
+      <button onClick={() => remove()}>Remove</button>
+    </div>
+  );
+};
+
+export default Demo;
