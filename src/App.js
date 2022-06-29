@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
-import { useCookie } from './hooks';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
 
-const Demo = () => {
-    const [value, updateCookie, deleteCookie] = useCookie('my-cookie');
-    const [counter, setCounter] = useState(1);
+const Input = ({ field: { onChange, value } }) => {
+    // console.log(onChange, value);
+    return <input onChange={onChange} value={value} />;
+};
 
-    useEffect(() => {
-        deleteCookie();
-    }, []);
-
-    const updateCookieHandler = () => {
-        updateCookie(`my-awesome-cookie-${counter}`);
-        setCounter((c) => c + 1);
-    };
-
+const App = () => {
+    const { register, control, handleSubmit } = useForm({
+        defaultValues: {
+            firstName: '',
+        },
+    });
+    const onSubmit = (data) => console.log(data);
+    const aaa = register('example');
+    console.log(aaa);
     return (
-        <div>
-            <p>Value: {value}</p>
-            <button onClick={updateCookieHandler}>Update Cookie</button>
-            <br />
-            <button onClick={deleteCookie}>Delete Cookie</button>
-        </div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <input defaultValue="test" {...aaa} />
+            <Controller name="firstName" control={control} render={({ field }) => <Input field={field} />} />
+            <input type="submit" />
+        </form>
     );
 };
 
-export default Demo;
+export default App;
