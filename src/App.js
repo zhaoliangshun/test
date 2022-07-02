@@ -1,11 +1,11 @@
 import React from 'react';
 
-import useCookie from './hooks/useCookie-v2';
+import { useIDBKeyval } from './hooks';
 
 const App = () => {
-    const [value, setValue] = useCookie('aaa', 'aaa', { expires: 365 });
+    const [value, setValue] = useIDBKeyval('aaa');
     console.log(value);
-    return <div onClick={() => setValue('bbb')}>111</div>;
+    return <div onClick={() => setValue('bbb', { expires: 365 })}>111</div>;
 };
 
 export default App;
