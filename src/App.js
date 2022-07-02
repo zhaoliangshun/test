@@ -1,27 +1,11 @@
 import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
 
-const Input = ({ field: { onChange, value } }) => {
-    // console.log(onChange, value);
-    return <input onChange={onChange} value={value} />;
-};
+import useCookie from './hooks/useCookie-v2';
 
 const App = () => {
-    const { register, control, handleSubmit } = useForm({
-        defaultValues: {
-            firstName: '',
-        },
-    });
-    const onSubmit = (data) => console.log(data);
-    const aaa = register('example');
-    console.log(aaa);
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input defaultValue="test" {...aaa} />
-            <Controller name="firstName" control={control} render={({ field }) => <Input field={field} />} />
-            <input type="submit" />
-        </form>
-    );
+    const [value, setValue] = useCookie('aaa', 'aaa', { expires: 365 });
+    console.log(value);
+    return <div onClick={() => setValue('bbb')}>111</div>;
 };
 
 export default App;

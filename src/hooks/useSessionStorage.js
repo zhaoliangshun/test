@@ -9,6 +9,7 @@ const useSessionStorage = (key, initialValue, raw) => {
     const [state, setState] = useState(() => {
         try {
             const sessionStorageValue = sessionStorage.getItem(key);
+            console.log(sessionStorageValue)
             if (typeof sessionStorageValue !== 'string') {
                 sessionStorage.setItem(key, raw ? String(initialValue) : JSON.stringify(initialValue));
                 return initialValue;
