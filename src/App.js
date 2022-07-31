@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import './App.scss';
 
-import { useCookie } from './hooks';
-import isPlainObject from 'lodash/isPlainObject';
-
-const aa = {
-    a: 1,
-    b: 2,
-    c: {
-        d: 3,
-    },
-    e: [4],
-};
-
-console.log(isPlainObject(aa));
-// '{"a":1,"b":2,"c":{"d":3},"e":[4]}'.replaceAll('"', '')
-// '{AAA:1,b:2,c:{d:3},e:[4]}'.replace(/([a-z]+):/gi,'"$1":')
 const App = () => {
-    const [value, setValue] = useCookie('aaa', '*$#|');
-    console.log(value);
-    return <div onClick={() => setValue('*$#|[]', { expires: 365 })}>111</div>;
+    const inputRef = useRef();
+    const placeholderRef = useRef();
+    const [value, setValue] = useState();
+    const [isFocus, setIsFocus] = useState();
+    const onPlaceHolderClick = () => {
+        setIsFocus(true);
+        inputRef.current.focus();
+    };
+    const onInputBlur = () => {
+        setIsFocus(false);
+    };
+    return (
+        <div className="content">
+            <input
+                ref={inputRef}
+                className="input"
+                type="text"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                onBlur={onInputBlur}
+            />
+            {!isFocus && !value ? (
+                <div ref={placeholderRef} onClick={onPlaceHolderClick} className="placeholder">
+                    aaa aaa aaa aaaaaa aaaaaa aaaaaa aaaaaa aaa
+                </div>
+            ) : (
+                ''
+            )}
+        </div>
+    );
 };
 
 export default App;
