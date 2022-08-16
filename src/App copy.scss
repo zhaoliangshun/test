@@ -1,0 +1,54 @@
+@import './scss-mixins/index.scss';
+
+body {
+    background-color: #ccc;
+}
+
+.content {
+    width: 20%;
+    position: relative;
+}
+.input {
+    outline: none;
+    height: 50px;
+    width: 100%;
+    padding: 6px 12px;
+}
+
+.placeholder {
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    padding: 6px 12px;
+    top: 0px;
+    left: 0px;
+    border: transparent 2px solid;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 15px;
+    color: #333;
+    font-size: 15px;
+}
+
+::-webkit-input-placeholder {
+    content: 'FIRST\000ASECOND\000ATHIRD';
+    display: block;
+    color: red;
+    text-align: center;
+    word-break: break-all;
+    white-space: wrap;
+    line-break: break-all;
+    height: 60px;
+    margin-top: 20px;
+    font-size: 1px;
+}
+
+::-moz-placeholder::before {
+    content: 'FIRST\000ASECOND\000ATHIRD';
+}
+
+:-ms-input-placeholder::before {
+    content: 'FIRST\000ASECOND\000ATHIRD';
+}
