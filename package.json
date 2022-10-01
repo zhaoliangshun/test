@@ -31,6 +31,7 @@
     "ramda": "^0.28.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.33.0",
     "react-i18next": "^11.17.2",
@@ -51,6 +52,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -67,7 +74,7 @@
     "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "eslint": "^8.18.0",
-    "eslint-config-alloy": "^4.5.1",
+    "eslint-config-alloy": "^4.7.0",
     "eslint-plugin-react": "^7.30.0"
   }
 }
